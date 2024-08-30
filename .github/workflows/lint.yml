@@ -1,0 +1,41 @@
+name: Capacitaciones
+run-name: ${{ github.event.repository.full_name }}
+
+env:
+  node-version: 18
+
+on:
+  push:
+    branches:
+      - main
+      - feature/miguel-reina
+  pull_request:
+    branches:
+      - main
+      - feature/miguel-reina
+
+jobs:
+  run-linters:
+    name: Run lint
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.node-version }}
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Run Check types
+        run: npm run check-types
+
+      - name: Run linters
+        run: npm run lint
+
+      - name: Run tests
+        run: npm run test
