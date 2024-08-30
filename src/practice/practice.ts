@@ -14,10 +14,20 @@ interface Totals {
  * @returns {Totals} - Un objeto con las propiedades totalIncome y totalExpenses.
  */
 function calculateTotals(transactions: Transaction[]): Totals {
-  //  TODO: Trabajar 😠
+  let totalIncome = 0;
+  let totalExpenses = 0;
+
+  transactions.forEach(transaction => {
+    if (transaction.type === 'money🤑') {
+      totalIncome += Math.abs(transaction.amount);
+    } else if (transaction.type === 'melomerezco🗿') {
+      totalExpenses += Math.abs(transaction.amount);
+    }
+  });
+
   return {
-    totalIncome: 0,
-    totalExpenses: 0
+    totalIncome,
+    totalExpenses
   }
 }
 
