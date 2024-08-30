@@ -33,3 +33,5 @@ function calculateTotals(transactions: Transaction[]): Totals {
 
 
 export { calculateTotals };
+
+// lint, check-types y test

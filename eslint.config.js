@@ -17,5 +17,12 @@ const compat = new FlatCompat({
 export default [
   { languageOptions: { globals: globals.browser } },
   ...compat.extends('standard-with-typescript'),
-  pluginReactConfig
+  pluginReactConfig,
+  {
+    settings: {
+      react: {
+        version: 'detect'
+      }
+    }
+  }
 ]
