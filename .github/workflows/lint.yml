@@ -1,10 +1,19 @@
 name: Capacitaciones
-on: 
+run-name: ${{ github.event.repository.full_name }}
+
+env:
+  node-version: 18
+
+on:
   push:
     branches:
+      - develop
+      - main
       - feature/miguel-reina
   pull_request:
     branches:
+      - develop
+      - main
       - feature/miguel-reina
 
 jobs:
@@ -19,7 +28,10 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '18'
+          node-version: ${{ env.node-version }}
+
+      - name: Install dependencies
+        run: npm install
 
       - name: Run Check types
         run: yarn check-types
