@@ -1,6 +1,9 @@
 name: Check commits
+run-name: Check commits
 on: 
   push: 
+    branches: [feat/jeremy-mosquera]
+  pull_request: 
     branches: [feat/jeremy-mosquera]
 jobs: 
   check-commits: 
