@@ -1,0 +1,31 @@
+name: GitHub Actions Demo
+
+run-name: my action ${{ github.actor }} 🚀
+
+on:
+  push:
+    branches:
+      - 'feature/daniel-f'
+
+jobs:
+  lint-check-types-tests:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
+
+      - name: Check out repository code
+        uses: actions/checkout@v4
+
+      - name: install dependencies
+        run: npm i
+
+      - name: Run lint script
+        run: npm run lint
+
+      - name: Run check-types
+        run: npm run check-types
+
+      - name: Run tests
+        run: npm run test
+
+      - run: echo "🍏 This job's status is ${{ job.status }}."
