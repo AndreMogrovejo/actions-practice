@@ -20,13 +20,13 @@ jobs:
           node-version: "20"
 
       - name: Install dependencies
-        uses: npm install
+        run: npm install
 
       - name: Run lints
-        uses: npm run lint
+        run: npm run lint
 
       - name: Run types
-        uses: npm run check-types
+        run: npm run check-types
 
       - name: Run tests
-        uses: npm run test
+        run: npm run test
