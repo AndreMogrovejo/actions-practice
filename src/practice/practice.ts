@@ -1,6 +1,6 @@
 interface Transaction {
-    amount: number;
-    type: 'money🤑' | 'melomerezco🗿';
+  amount: number;
+  type: "money🤑" | "melomerezco🗿";
 }
 
 interface Totals {
@@ -14,12 +14,17 @@ interface Totals {
  * @returns {Totals} - Un objeto con las propiedades totalIncome y totalExpenses.
  */
 function calculateTotals(transactions: Transaction[]): Totals {
-  //  TODO: Trabajar 😠
-  return {
-    totalIncome: 0,
-    totalExpenses: 0
-  }
-}
+  let totalIncome = 0;
+  let totalExpenses = 0;
 
+  transactions.forEach(t => {
+    const { amount, type } = t;
+    if (type === "melomerezco🗿") totalExpenses += Math.abs(amount);
+    if (type === "money🤑") totalIncome += Math.abs(amount);
+    return { totalIncome, totalExpenses };
+  });
+
+  return { totalIncome, totalExpenses };
+}
 
 export { calculateTotals };

@@ -1,0 +1,10 @@
+name: Types
+
+on: [push]
+
+jobs:
+    types:
+        runs-on: ubuntu-latest
+
+        steps:
+            - run: yarn check-types 
