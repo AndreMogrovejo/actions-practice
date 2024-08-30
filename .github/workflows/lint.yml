@@ -1,0 +1,31 @@
+name: Capacitaciones
+on: 
+  push:
+    branches:
+      - feature/miguel-reina
+  pull_request:
+    branches:
+      - feature/miguel-reina
+
+jobs:
+  run-linters:
+    name: Run lint
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '14'
+
+      - name: Install dependencies
+        run: yarn check-types
+
+      - name: Run linters
+        run: yarn run lint
+
+      - name: Run tests
+        run: yarn run test
