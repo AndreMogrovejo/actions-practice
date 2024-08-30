@@ -1,0 +1,33 @@
+name: Lint
+
+on: 
+    pull_request: 
+        branches:
+            - main
+
+jobs:
+    run-linters:
+        name: Run Linters
+        runs-on: ubuntu-latest
+
+        steps: 
+            - name: Check git repo
+              uses: actions/checkout@v4
+
+            - name: set up node.js
+              uses: actions/setup-node@v4
+              with:
+                node-version: 20
+
+            - name: Install dependencies
+              run: npm install
+
+            - name: Run linters
+              run: npm run lint
+
+            - name: Run check types
+              run: npm run check-types
+
+            - name: Run tests
+              run: npm run test
+
