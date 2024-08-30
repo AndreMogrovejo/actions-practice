@@ -7,8 +7,8 @@ jobs:
     container:
       image: node:20
     steps:
-      - run: npm install"
-      - run: yarn check-types"
-      - run: yarn lint"
-      - run: yarn test"
+      - run: npm install
+      - run: yarn check-types
+      - run: yarn lint
+      - run: yarn test
       - run: echo "🍏 This job's status is ${{ job.status }}."
