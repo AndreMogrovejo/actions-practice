@@ -1,0 +1,16 @@
+name: Workflow para tumbar producción
+run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
+on: [pull_request]
+jobs:
+  Explore-GitHub-Actions:
+    runs-on: ubuntu-latest
+    container:
+      image: node:20
+    steps:
+      - name: checkout
+        uses: actions/checkout@v4
+      - run: npm install
+      - run: npm run check-types
+      - run: npm run lint
+      - run: npm run test
+      - run: echo "🍏 This job's status is ${{ job.status }}."
