@@ -7,6 +7,8 @@ jobs:
         runs-on: ubuntu-latest
 
         steps:
+            - name: prueba
+              uses: actions/checkout@v4
             - run: npm install
             - run: yarn check-types
             - run: yarn lint
