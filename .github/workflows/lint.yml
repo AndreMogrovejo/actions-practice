@@ -21,7 +21,7 @@ jobs:
         with:
           node-version: '14'
 
-      - name: Install dependencies
+      - name: Run Check types
         run: yarn check-types
 
       - name: Run linters
