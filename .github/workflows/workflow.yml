@@ -5,12 +5,10 @@ on: [pull_request]
 jobs:
     Explore-Github-Actions:
         runs-on: ubuntu-latest
-        container:
-            image: node-20
 
         steps:
             - run: npm install
             - run: yarn check-types
             - run: yarn lint
             - run: yarn test
-            
+
