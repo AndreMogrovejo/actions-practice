@@ -2,9 +2,11 @@ name: Check commits
 run-name: Check commits
 on: 
   push: 
-    branches: [feat/jeremy-mosquera]
+    branches: 
+      - feat/jeremy-mosquera
   pull_request: 
-    branches: [feat/jeremy-mosquera]
+    branches: 
+      - feat/jeremy-mosquera
 jobs: 
   check-commits: 
     runs-on: ubuntu-latest
@@ -13,9 +15,9 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Use Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
-          node-version: "20.9"
+          node-version: "20"
 
       - name: Install dependencies
         uses: npm install
