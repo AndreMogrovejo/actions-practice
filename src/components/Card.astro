@@ -1,0 +1,39 @@
+---
+interface Props {
+  title: string
+  href: string
+}
+
+const { href, title }: Props = Astro.props
+---
+
+<div class="circular-card bg-white">
+  <a
+    href={href}
+    target="_blank"
+    class="circular-card flex items-center justify-center bg-white p-6 shadow-lg transition duration-300 hover:shadow-xl"
+  >
+    <span class="colorful-link text-lg font-semibold text-teal-400">
+      {title}
+    </span>
+  </a>
+</div>
+
+<style>
+  .circular-card {
+    border-radius: 9999px;
+    width: 100px;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow:
+      0 4px 6px -1px rgba(0, 0, 0, 0.1),
+      0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  }
+
+  .colorful-link:hover {
+    text-decoration: none;
+    text-decoration-color: #6ee7b7;
+  }
+</style>
